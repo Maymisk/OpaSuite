@@ -1,0 +1,36 @@
+version: '3'
+
+services:
+  mongodb:
+    image: mongo
+    container_name: opa_suite
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: khalil
+      MONGO_INITDB_ROOT_PASSWORD: password
+    volumes:
+      - mongodb_data:/data/db
+    networks:
+      - mongodb_network
+
+
+  mongo-express:
+    image: mongo-express
+    container_name: mongo-express
+    environment:
+      ME_CONFIG_MONGODB_SERVER: mongodb
+      ME_CONFIG_MONGODB_PORT: 27017
+      ME_CONFIG_MONGODB_ADMINUSERNAME: khalil
+      ME_CONFIG_MONGODB_ADMINPASSWORD: password
+    ports:
+      - "8081:8081"
+    networks:
+      - mongodb_network
+
+networks:
+  mongodb_network:
+    driver: bridge
+
+volumes:
+  mongodb_data:

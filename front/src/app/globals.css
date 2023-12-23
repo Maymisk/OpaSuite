@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body main {
+  width: 100%;
+
+  max-width: 1368px;
+  margin: 0 auto;
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #2b2d31;
+  border-radius: 10px;  
+  
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #313338;
+  border-radius: 9999px;
+  box-shadow: inset 0px 1px 2px #6064f4; 
+
+}
