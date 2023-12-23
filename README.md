@@ -75,7 +75,7 @@ Then, you should be able to use Mongo Express freely.
 
 ### Running the back-end server
 
-Now, with our database online, it's time to actually run the server. First of all, you should create two environment variables in a .env file, following the example in [.env.example](/.env.example). These are the token secrets and they are necessary for the authentication to work.
+Now, with our database online, it's time to actually run the server. First of all, you should create two environment variables in a .env file, following the example in [.env.example](/back/.env.example). These are the token secrets and they are necessary for the authentication to work.
 
 
 Considering you're in the directory /OpaSuite/back and with environment variables set up, run the following command:
