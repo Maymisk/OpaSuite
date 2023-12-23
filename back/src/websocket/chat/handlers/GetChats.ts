@@ -37,6 +37,6 @@ export async function handleGetChats({
 			unreadMessages: messages ? messages : 0,
 		});
 	});
-	console.log(chats, onlineUsers, 'CHATS UPON LOAD');
+
 	socket.emit('loadChats', chats);
 }

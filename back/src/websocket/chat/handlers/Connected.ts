@@ -17,7 +17,7 @@ export function handleConnection({
 	users[_id] = socket.id;
 	onlineUsers[socket.id] = { _id, name };
 
-	console.log(users, onlineUsers, 'CONNOECTION HERE');
+	console.log(name, ' connected');
 
 	setTimeout(() => {
 		io.emit('onlineUsers', {
