@@ -125,13 +125,23 @@ and you're ready to go!
 
 
 
-## 🔧 Improvements
+## 🔧 Improvements and Errors
 
-- The refresh token feature does not work completely; the token cookies need to be updated in the client in order to maintain the user session and provide a seamless "reauthentication" process to the user. This could probably be done using NextJS middlewares.
+- 🔴 The refresh token feature does not work completely; the token cookies need to be updated in the client in order to maintain the user session and provide a seamless "reauthentication" process to the user. This could probably be done using NextJS middlewares.
 
-- Make the client code more organized and readable.
+- 🔴 The Sign Out button doesn't disconnect the user's socket, which means they'll still be marked as 'online' after signing out. This can be fixed easily, disconnecting the socket upon clicking the button.
 
-- Create Tests with Jest
+- 🔴 The error toast in the login form shows even when the login is successful. This is derived from a simple if clause error in the [LoginForm component](/front/src/components/login/LoginForm.tsx).
+
+- 🔴 When a chat is created, it is being created twice in the database. This is because of useEffect's behavior in the [MessagesList component](/front/src/components/Chat/MessagesList/index.tsx): it executes whenever the 'user' state changes, causing the creation of two chats and, consequently, interface bugs. This can be fixed by implementing logic to avoid duplicating requests, similar to the code written in the [Auth Context file](/front/src/contexts/auth/AuthContext.tsx)
+
+- 🔴 The [MessagesList component](/front/src/components/Chat/MessagesList/index.tsx) is not handling message overflow. To add this feature, simply add the classes 'overflow-hidden overflow-y-auto' to the ul tag.
+
+- 🔴 The unread message counter is not being handled correctly, due to its faulty dependence on the usePathname hook. 
+
+- 🟢 Make the client code more organized and readable.
+
+- 🟢 Create Tests with Jest
 
 ## 📝 Side Notes
 - The back-end alone can be tested using software like postman or insomnia; however, the controllers and routes must be manually checked.
